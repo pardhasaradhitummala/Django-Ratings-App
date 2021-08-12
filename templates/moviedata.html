@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{data.movie_name}}</h1>
+<h1>{{data.movie_actor}}</h1>
+<h1>{{data.movie_actress}}</h1>
+<h1>{{data.movie_director}}</h1>
+<h1>{{data.movie_production}}</h1>
+<h1>{{data.release_date}}</h1>
+{% if rating %}
+{% for i in rating %}
+<h3>{{i.rating}}</h3>
+<h3>{{i.review}}</h3>
+<hr>
+{% endfor %}
+{% endif %}
+<img src="{{data.movie_poster.url}}" width="200px">
+<form action="saverating/{{data.id}}" method="post">
+    {% csrf_token %}
+    <input type="range" min="0" max="10" step="0.5" name="rating">
+    <input  type="text" name="review" placeholder="enter review">
+    <input type="submit" value="post">
+</form>
+
+
+
+</body>
+</html>

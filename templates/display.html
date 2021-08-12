@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .moviecard{
+            display : inline-block;
+            width : 300px;
+            height : 300px;
+            border : 0.25px solid grey;
+            margin:5px;
+            text-align : center;
+            padding-top :10px;
+        }
+
+    </style>
+</head>
+<body>
+
+{% for i in data %}
+<div class="moviecard">
+<form action="moviedata/{{i.id}}">
+
+
+    <img src="{{i.movie_poster}}" width="100px">
+    <h3>{{i.movie_name}}</h3>
+    <input type="submit" value="Know More..">
+
+
+ </form>
+    </div>
+{% endfor %}
+
+
+</body>
+</html>
